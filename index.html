@@ -16,16 +16,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-c.min.js"></script>
 
 <h1 id="linguagens-de-programa%C3%A7%C3%A3o">Linguagens de Programação</h1>
-<h2 id="tipos-de-dados-subprogramas-paradigma-orientado-a-objetos-e-tratamento-de-exce%C3%A7%C3%B5es">Tipos de Dados, Subprogramas, Paradigma Orientado a Objetos e Tratamento de Exceções</h2>
+<h2 id="tipos-de-dados-verifica%C3%A7%C3%A3o-de-tipos-e-subprogramas">Tipos de Dados, Verificação de Tipos e Subprogramas</h2>
 <p>Elaborado pelo prof. M. Sc. Diego Ascânio Santos <a href="ascanio@cefetmg.br">ascanio@cefetmg.br</a> com base no material do prof. Dr. Andrei Rimsa Álvares <a href="andrei@cefetmg.br">andrei@cefetmg.br</a></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2">
 <h2 id="roteiro">Roteiro</h2>
 <ol>
 <li>Tipos de Dados</li>
+<li>Verificação de Tipos</li>
 <li>Subprogramas</li>
-<li>Programação Orientada a Objetos</li>
-<li>Tratamento de Exceções</li>
 </ol>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3">
@@ -268,7 +267,7 @@ struct ponto {
 <p>Na perspectiva da modularização entendemos os procedimentos mais como agregadores de comandos e operações (que não retornam valores) para abstrair, encapsular, esconder, modularizar partes não essenciais do problema, ao passo que as funções, são utilizadas quando, além de todos os predicados pertinentes aos procedimentos, é necessário retornar valores de operações ou de estados (verdadeiro, falso, positivo, negativo, etc.) necessários em alguma parte do programa principal, sem a qual o problema não possa ser resolvido.</p>
 </div>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21">
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-class="lead" class="lead" style="--class:lead;">
 <h2 id="exemplos-de-fun%C3%A7%C3%B5es-e-procedimentos">Exemplos de Funções e Procedimentos</h2>
 <div class="grid-50-50 footnotesize">
 <div class="grid-element">
@@ -307,7 +306,7 @@ struct ponto {
 </table>
 <ol start="2">
 <li>
-<p>Construe um procedimento que:<br />
+<p>Construa um procedimento que:<br />
 2.1 Solicite o nome do funcionário<br />
 2.2 Solicite o salário do funcionário<br />
 2.3 Imprima o nome e o imposto a ser pago pelo funcionário, separados por uma tabulação</p>
@@ -318,6 +317,8 @@ struct ponto {
 </ol>
 </div>
 <div class="grid-element">
+
+<h2 id="solu%C3%A7%C3%A3o">Solução</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">calcularImposto</span>(<span class="hljs-params">salario</span>) { <span class="hljs-comment">// função</span>
     <span class="hljs-keyword">if</span> (salario &lt; <span class="hljs-number">1903.99</span>)
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
@@ -341,6 +342,7 @@ struct ponto {
     i ++;
 }
 </code></pre>
+<p>É claramente observável a diferença entre funções e procedimentos a partir do exemplo acima, pois, o procedimento relatório funcionou como um agregador (abstrator) de instruções sem retornar valores, ao passo que a função calcularImposto retorna valores sem apresentar — no caso ideal — efeitos colaterais.</p>
 </div>
 </div>
 </section>

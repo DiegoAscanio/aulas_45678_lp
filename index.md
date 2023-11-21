@@ -124,7 +124,7 @@
 
 <!-- _class: lead -->
 # Linguagens de Programação
-## Tipos de Dados, Subprogramas, Paradigma Orientado a Objetos e Tratamento de Exceções
+## Tipos de Dados, Verificação de Tipos e Subprogramas
 
 Elaborado pelo prof. M. Sc. Diego Ascânio Santos [ascanio@cefetmg.br](ascanio@cefetmg.br) com base no material do prof. Dr. Andrei Rimsa Álvares [andrei@cefetmg.br](andrei@cefetmg.br)
 
@@ -134,9 +134,8 @@ Elaborado pelo prof. M. Sc. Diego Ascânio Santos [ascanio@cefetmg.br](ascanio@c
 ## Roteiro
 
 1. Tipos de Dados
-2. Subprogramas
-3. Programação Orientada a Objetos
-4. Tratamento de Exceções
+2. Verificação de Tipos
+3. Subprogramas
 
 
 ---
@@ -452,7 +451,7 @@ Para isso:
 |De 3.751,06 até 4.664,68|22,50%|
 |Acima de 4.664,68|27,50%|
 
-2. Construe um procedimento que:
+2. Construa um procedimento que:
 2.1 Solicite o nome do funcionário
 2.2 Solicite o salário do funcionário
 2.3 Imprima o nome e o imposto a ser pago pelo funcionário, separados por uma tabulação
@@ -461,6 +460,9 @@ Para isso:
 
 </div>
 <div class="grid-element">
+
+<!-- _class: lead -->
+## Solução
 
 ```javascript
 function calcularImposto(salario) { // função
@@ -486,6 +488,8 @@ while (i < 15) {
     i ++;
 }
 ```
+
+É claramente observável a diferença entre funções e procedimentos a partir do exemplo acima, pois, o procedimento relatório funcionou como um agregador (abstrator) de instruções sem retornar valores, ao passo que a função calcularImposto retorna valores sem apresentar — no caso ideal — efeitos colaterais.
 
 </div>
 
