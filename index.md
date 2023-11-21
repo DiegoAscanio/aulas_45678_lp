@@ -494,3 +494,262 @@ while (i < 15) {
 </div>
 
 </div>
+
+
+---
+
+## Subprogramas - Parâmetros
+
+<div class="regular">
+
+Apesar de ainda não termos mencionado parâmetros, no exemplo anterior vimos uma função que recebia um parâmetro — calcularImposto — e um procedimento que não recebia nenhum parâmetro — relatorio.
+
+Antes de entrarmos em detalhes, é importante ressaltar que parâmetros de forma algum distinguem funções de procedimentos, pois, existem funções que não recebem parâmetros, como a função `toString` em javascript, e procedimentos que recebem parâmetros, como o procedimento `alert` também em javascript.
+
+Avançando na discussão, **parâmetros são valores que podem ser passados para funções e procedimentos, sendo que esses valores podem ser utilizados dentro da função ou procedimento, como se fossem variáveis locais**. Quando uma função ou procedimento é chamado, os valores passados para os parâmetros são chamados de argumentos.
+
+Existem duas maneiras de enxergar os parâmetros:
+    - Como expressões que produzem o(s) argumento(s) — **denominados parâmetros de chamada ou parâmetros reais**;
+    - Como variáveis locais que denotam o(s) argumento(s) no interior da subrotina — **denominados parâmetros formais**.
+
+</div>
+
+
+---
+
+## Parâmetros reais x Parâmetros formais
+
+- Parâmetros reais: expressões que produzem os argumentos;
+- Parâmetros formais: identificadores que denotam os argumentos no interior da subrotina;
+
+<div class="grid-50-50 regular">
+
+<div class="grid-element">
+
+```javascript
+//funcao
+function area(raio) {
+    return Math.PI * raio * raio;
+}
+
+//chamadas
+area(5);
+area(a + b);
+```
+
+</div>
+
+<div class="grid-element">
+
+| Tipo | Exemplo |
+|------|---------|
+| Argumento | 5 e o resultado de a + b |
+| Parâmetro real | 5 e a expressão a + b |
+| Parâmetro formal | raio |
+
+</div>
+
+</div>
+
+
+---
+
+<div class="regular">
+
+## Correspondência entre parâmetros formais e parâmetros reais
+
+A correspondência geralmente é posicional, ou seja, o primeiro parâmetro formal corresponde ao primeiro parâmetro real, o segundo parâmetro formal corresponde ao segundo parâmetro real, e assim por diante.
+
+Mas pode ser realizada por palavras chaves, especificando-se o nome do parâmetro formal correspondente ao parâmetro real para cada argumento, como também, pode admitir valores padrões.
+
+Em python a correspondência é posicional, mas pode ser realizada por palavras chaves, admite-se valores padrões e pode ser mista, como veremos a seguir:
+
+```python
+def soma(a, b, c = 0):
+    return a + b + c
+
+# correspondencia posicional
+# 3 corresponde ao parâmetro a e 4 corresponde ao parâmetro b
+soma(3, 4) # 7
+
+# correspondencia por palavras chaves
+soma(b = 5, a = 9) # 14
+
+# correspondencia posicional e por palavras chaves
+soma(3, b = 4) # 7
+
+# em todos os casos acima c assumiu um valor padrão, agora vamos explicitar o valor de c em correspondencia posicional
+soma(3, 4, 5) # 12
+
+# e agora em correspondencia por palavras chaves
+soma(c = 5, a = 9, b = 11) # 25
+```
+
+</div>
+
+
+---
+
+## Parâmetros - Impactos da Ausência de Parâmetros
+
+<div class="regular">
+
+A ausência de parâmetros causam impactos negativos nos seguintes aspectos do código:
+
+- **Legibilidade**: a ausência de parâmetros torna o código mais difícil de ser lido, pois, o leitor precisa entender o código para saber quais são os valores que estão sendo utilizados, já que não existem menções aos identificadores usados na função.
+
+- **Manutenibilidade**: a ausência de parâmetros torna o código mais difícil de ser mantido, pois, o desenvolvedor precisa entender o código para saber quais são os valores que estão sendo utilizados.
+
+- **Reusabilidade e Confiabilidade**: a ausência de parâmetros torna o código menos reutilizável e confiável, pois, os parâmetros auxiliam a deduzir a natureza dos valores que estão sendo utilizados e por consequência, a deduzir o comportamento da subrotina que está sendo chamada.
+
+</div>
+
+
+---
+
+## Passagem de parâmetros 
+
+- Compreendem as maneiras de transmitir informações (parâmetros) para os subprogramas chamados.
+
+- Três aspectos importantes governam a passagem de parâmetros:
+    - **Direção da passagem**
+    - **Mecanismo de implementação**
+    - **Momento de Ocorrência**.
+
+
+---
+
+## Direção da passagem de parâmetros
+
+<div class="regular">
+
+1. Entrada (input): Parâmetros de entrada são aqueles fornecidos ao subprograma pelo chamador. Eles são usados pelo subprograma em suas operações internas, mas não são modificados para reflexo no chamador.
+
+2. Saída (output): Parâmetros de saída são aqueles que o subprograma utiliza para retornar dados para o chamador. Eles podem ser modificados dentro do subprograma e essas modificações são refletidas no chamador.
+
+3. Bidirecional: Parâmetros bidirecionais podem ser utilizados tanto para receber dados de entrada quanto para enviar dados de saída. Eles permitem que o subprograma receba dados, os modifique e então devolva os dados modificados ao chamador.
+
+</div>
+
+
+---
+
+## Passagem de Parâmetros - Direção da Passagem
+
+<div class="regular">
+
+1. Parâmetros de entrada
+
+Exemplo em javascript:
+
+```javascript
+alert("Olá Mundo!");
+```
+
+2. Parâmetros de saída
+
+Exemplo em matlab:
+```matlab
+function [x,y] = pol2cart(theta,rho)
+```
+
+3. Parâmetros de entrada e saída 
+Exemplo em python:
+```python
+def inserir_valor_no_meio_do_vetor(vetor, valor):
+    meio = len(vetor) // 2
+    vetor.insert(meio, valor)
+```
+
+</div>
+
+
+---
+
+## Passagem de Parâmetros - Mecanismos de Passagem
+
+<div class="grid-50-50 small">
+
+<div class="grid-element">
+
+1. Passagem por cópia (valor)
+
+O valor do argumento é copiado para o parâmetro formal do subprograma. Qualquer modificação feita ao parâmetro dentro do subprograma não afeta o argumento original no chamador.
+
+Exemplo em javascript:
+```javascript
+function incrementa(x) {
+    x = x + 1;
+    return x;
+}
+var b = 5;
+alert(incrementa(b)); // 6
+alert(b); // 5
+```
+
+</div>
+
+<div class="grid-element">
+
+2. Passagem por referência
+
+Ao invés de passar uma cópia do valor, a passagem por referência envia um endereço de memória do argumento. Isso significa que o subprograma opera diretamente no dado original. As alterações feitas no parâmetro afetam diretamente o argumento no chamador. Este método é eficiente em termos de memória para grandes estruturas de dados, mas pode levar a efeitos colaterais indesejados se não for usado com cuidado.
+
+Exemplo em C:
+```c
+void incrementa(int *x) {
+    *x = *x + 1;
+}
+int main() {
+    int b = 5;
+    incrementa(&b);
+    printf("%d\n", b); // 6
+    return 0;
+}
+```
+
+</div>
+
+</div>
+
+
+---
+
+## Passagem de Parâmetros - Mecanismos de Passagem
+
+<div class="small grid-50-50">
+
+<div class="grid-element">
+
+3. Passagem por nome
+
+Este método envolve a substituição do parâmetro formal pelo argumento real cada vez que o parâmetro é usado no subprograma. Não é uma cópia do valor nem um endereço de memória que é passado, mas a expressão do argumento em si. Isso significa que a expressão é avaliada cada vez que o parâmetro é acessado, o que pode levar a resultados diferentes se o estado do argumento mudar entre essas avaliações.
+
+Exemplo em PseudoCódigo:
+```
+procedure increment(x)
+    x = x + 1
+end procedure
+
+procedure printTwice(int n) 
+    print n
+    print n
+end procedure
+```
+
+</div>
+<div class="grid-element">
+
+Se chamarmos printTwice com um parâmetro por nome, como printTwice(increment(y)), aqui está o que aconteceria:
+
+1. Suponha que y seja inicialmente 5.
+2. Na primeira chamada de print dentro de printTwice, increment(y) é avaliado, incrementando y para 6 e retornando esse valor. Portanto, 6 é impresso.
+3. Na segunda chamada de print, increment(y) é avaliado novamente, incrementando y para 7 e retornando esse valor. Então, 7 é impresso.
+
+Portanto, a saída seria "6 7", mesmo que intuitivamente possamos esperar "6 6". Isso ocorre porque, na passagem por nome, a expressão é reavaliada cada vez que o parâmetro é acessado, ao contrário da passagem por valor, onde o valor inicial seria usado em todas as chamadas. Isso demonstra como a passagem por nome pode levar a resultados diferentes e possivelmente inesperados dependendo do estado do argumento entre avaliações.
+
+Atualmente este modelo de passagem de parâmetros não é usado nas linguagens modernas, como Java, C# e Python. Podemos encontrar este modelo em ALGOL.
+
+</div>
+
+</div>
